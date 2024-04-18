@@ -29,8 +29,8 @@ jobs:
       # - name: Install and Build # 安装、打包，如果提前已打包好无需这一步
       #   run: npm install & npm build
           
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
@@ -48,6 +48,6 @@ jobs:
         with:
           # branch: gh-pages # 部署后提交到哪个分支
           # folder: docs # 打包好的目录名称
-          # github_token: ${{ secrets.GITHUB_TOKEN }}
-          # publish_dir: ./docs  # 指定你的公共目录
-          entrypoint: /docs/index.html
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # 指定你的公共目录
+          # entrypoint: /docs/index.html
