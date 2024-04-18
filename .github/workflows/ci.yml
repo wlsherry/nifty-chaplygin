@@ -27,16 +27,14 @@ jobs:
       #     destination: ./_site
       
       # - name: Install and Build # 安装、打包，如果提前已打包好无需这一步
-      #   run: |
-      #     npm install
-      #     npm build
+      #   run: npm install & npm build
           
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
-    needs: build
+    # needs: build
       
     environment:
       name: github-pages
