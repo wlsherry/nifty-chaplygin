@@ -6,7 +6,7 @@ on: # 监听main分支上的 push 事件
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -36,9 +36,9 @@ jobs:
   deploy:
     # needs: build
       
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # environment:
+    #   name: github-pages
+    #   url: ${{ steps.deployment.outputs.page_url }}
       
     runs-on: ubuntu-latest
     steps:
@@ -47,4 +47,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           # branch: gh-pages # 部署后提交到哪个分支
-          folder: docs # 打包好的目录名称
+          # folder: docs # 打包好的目录名称
+          # github_token: ${{ secrets.GITHUB_TOKEN }}
+          # publish_dir: ./docs  # 指定你的公共目录
+          entrypoint： /docs/index.html
