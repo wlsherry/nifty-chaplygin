@@ -4,7 +4,7 @@ name: Build and Deploy
 on: # 监听main分支上的 push 事件
   # Runs on pushes targeting the default branch
   push:
-    branches: ["dev"]
+    branches: ["main"]
 
 jobs:
   # Build job
@@ -21,10 +21,10 @@ jobs:
       #     source: ./
       #     destination: ./_site
       
-      # - name: Install and Build # 安装、打包，如果提前已打包好无需这一步
-      #   run: |
-      #     npm install
-      #     npm build
+      - name: Install and Build # 安装、打包，如果提前已打包好无需这一步
+        run: |
+          npm install
+          npm build
           
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v3
