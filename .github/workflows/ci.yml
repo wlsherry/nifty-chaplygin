@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest # 构建环境使用ubuntu
     steps:
-      - name: Checkout
+      - name: Checkout # 将存储库检出到运行器上
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -26,8 +26,8 @@ jobs:
       #     source: ./
       #     destination: ./_site
       
-      # - name: Install and Build # 安装、打包，如果提前已打包好无需这一步
-      #   run: npm install & npm build
+      - name: Install and Build # 安装、打包，如果提前已打包好无需这一步
+        run: npm install & npm build
           
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v3
@@ -36,9 +36,9 @@ jobs:
   deploy:
     # needs: build
       
-    # environment:
-    #   name: github-pages
-    #   url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
       
     runs-on: ubuntu-latest
     steps:
