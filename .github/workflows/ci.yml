@@ -16,12 +16,13 @@ permissions:
   id-token: write
 
 jobs:
-  # # Build &  job
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout # 检出仓库代码
-  #       uses: actions/checkout@v4
+  # Build & Deployment
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 官方action，将代码拉取到虚拟机
+      - name: Checkout
+        uses: actions/checkout@v4
         
   # #     - name: Setup Pages # 设置构建环境（如果需要）
   # #       uses: actions/configure-pages@v5     
@@ -40,14 +41,7 @@ jobs:
   #     # - name: Upload artifact
   #     #   uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
-  deploy:
-    runs-on: ubuntu-latest
-    # environment:
-    #   name: github-pages
-    #   url: ${{ steps.deployment.outputs.page_url }}
-    # needs: build
-    steps:
+  
       - name: Deploy to GitHub Pages
         id: deployment
         uses: avinal/github-pages-deploy-action@v0.9
