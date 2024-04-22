@@ -51,4 +51,4 @@ jobs:
           # Generate Site from which branch
           BUILD_FROM: main
           # folder in which generated files are stored
-          DOCS_FOLDER: docs
+          DOCS_FOLDER: dist
