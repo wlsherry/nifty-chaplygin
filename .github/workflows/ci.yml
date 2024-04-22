@@ -50,8 +50,11 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: avinal/github-pages-deploy-action@v0.9
         with:
-          # branch: gh-pages # 部署后提交到哪个分支
-          # folder: docs # 打包好的目录名称
-          uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
+          # Deploy pages to which branch
+          PAGES_BRANCH: gh-pages
+          # Generate Site from which branch
+          BUILD_FROM: main
+          # folder in which generated files are stored
+          DOCS_FOLDER: docs
